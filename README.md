@@ -1,3 +1,3 @@
 # numpy-testing
 
-This repository contains various testing with the NumPy library. No official project are underway.
+This repository contains various testing with the NumPy library. No official projects are underway.
