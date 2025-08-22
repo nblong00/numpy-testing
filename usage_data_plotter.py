@@ -12,6 +12,11 @@ def convert_array_values_to_int(row):
     return coverted_row
 
 
+def calc_mean(usage_data):
+    usage_mean = usage_data.mean(axis=2)
+    print(usage_mean)
+
+
 def array_generation(user_input):
     with open(user_input, mode="r") as f:
         reader = csv.reader(f)
@@ -23,6 +28,7 @@ def array_generation(user_input):
             converted_row = convert_array_values_to_int(row)
             usage_data = np.append(usage_data, [[converted_row]], axis=1)
         print(usage_data)
+        calc_mean(usage_data)
 
 
 def main():
