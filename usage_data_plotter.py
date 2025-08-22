@@ -7,15 +7,21 @@ def gather_user_input():
     return user_input
 
 
+def convert_array_values_to_int(row):
+    coverted_row = [int(i) for i in row]
+    return coverted_row
+
+
 def array_generation(user_input):
     with open(user_input, mode="r") as f:
         reader = csv.reader(f)
         first_row = next(reader)
-        usage_data = np.array([
+        usage_data = np.array([[
             first_row
-        ], np.uint16)
+        ]], np.uint16)
         for row in reader:
-            usage_data = np.append(usage_data, [row], axis=0)
+            converted_row = convert_array_values_to_int(row)
+            usage_data = np.append(usage_data, [[converted_row]], axis=1)
         print(usage_data)
 
 
