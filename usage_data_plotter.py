@@ -33,8 +33,8 @@ def array_generation(user_input):
         for row in reader:
             converted_row = convert_array_values_to_int(row)
             usage_data = np.append(usage_data, [[converted_row]], axis=1)
-        usage_data = np.squeeze(usage_data)
-        return usage_data
+    usage_data = np.squeeze(usage_data)
+    return usage_data
 
 
 def showcase_mean_results(usage_mean):
@@ -47,16 +47,23 @@ def showcase_mean_results(usage_mean):
     print("\n----------------------------------")
 
 
+def showcase_min_max_results(calc_min, calc_max):
+    print("\nMin & Max usage per two week periods:\n")
+    for number, item in enumerate(calc_min, 1):
+        if number != 1:
+            print(f"Week {number + 1} & {number + 2} min/max: {item}/{calc_max[number - 1]}")
+        else:
+            print(f"Week {number} & {number + 1} min/max: {item}/{calc_max[number - 1]}")
+    print("\n----------------------------------")
+
+
 def main():
     user_input = gather_user_input()
     usage_data = array_generation(user_input)
     usage_mean = calc_mean(usage_data)
     (calc_min, calc_max) = calc_min_max(usage_data)
     showcase_mean_results(usage_mean)
-    # print(usage_data)
-    # print(usage_mean)
-    # print(calc_min)
-    # print(calc_max)
+    showcase_min_max_results(calc_min, calc_max)
 
 
 if __name__ == "__main__":
