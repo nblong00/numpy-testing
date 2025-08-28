@@ -54,7 +54,8 @@ def showcase_min_max_results(calc_min, calc_max):
             print(f"Week {number + 1} & {number + 2} min/max: {item}/{calc_max[number - 1]}")
         else:
             print(f"Week {number} & {number + 1} min/max: {item}/{calc_max[number - 1]}")
-    print("\n----------------------------------")
+    print("\n----------------------------------\n")
+    input("Press ENTER to close program...")
 
 
 def main():
